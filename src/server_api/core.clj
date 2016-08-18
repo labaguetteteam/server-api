@@ -5,7 +5,7 @@
      org.httpkit.server))
 
 (defroutes all-routes
-  (GET "/" [] "<p>Page not found.</p>"))
+  (GET "/" [] "<p>Welcome to / felow clojurer</p>"))
 
 (defn -main []
   (do
