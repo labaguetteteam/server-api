@@ -19,19 +19,19 @@ First you need the create an image before launching a container.
 To create the image use :
 
 ```bash
-lein run -s "SERVER_TOKEN"
+docker build -t uber-daemon-api .
 ```
 
 To launch the container use :
 ```bash
-lein run -s "SERVER_TOKEN"
+docker run -dP --name uda uber-daemon-api
 ```
 
 For the moment the container downloads every dependencies of the project when it starts so you have to wait a bit.
 
 You can check the status of the container by doing :
 ```bash
-lein run -s "SERVER_TOKEN"
+docker logs uda
 ```
 When \"Server start\" is prompted the server is running and waiting for instructions.
 
@@ -39,14 +39,17 @@ When \"Server start\" is prompted the server is running and waiting for instruct
 
 You can query the server with a :
 ```bash
-lein run -s "SERVER_TOKEN"
+curl localhost:port
 ```
 
 To know the port assigned by docker use :
 ```bash
-lein run -s "SERVER_TOKEN"
+docker ps -l
 ```
-and refer to 0.0.0.0:port->8080/tcp
+and refer to the result :
+```bash
+0.0.0.0:port->8080/tcp
+```
 
 ## License
 
